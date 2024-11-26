@@ -13,28 +13,5 @@
 </head>
 <body>
     <iframe id="iframe" src="https://thegeniusolympiad.wordpress.com" width="100%" height="100%" style="border:none; height:100vh;"></iframe>
-    <script>
-        const iframe = document.getElementById("iframe");
-        let lastPath = "";
-        
-        function updateAddressBar() {
-            try {
-                const iframeUrl = iframe.contentWindow.location.pathname;
-                
-                if (iframeUrl !== lastPath) {
-                    history.pushState(null, "", iframeUrl);
-                    lastPath = iframeUrl;
-                }
-            } catch (e) {
-                console.error("Unable to change the route due to cross-origin restrictions.");
-            }
-        }
-        
-        setInterval(updateAddressBar, 1000);
-        
-        window.onpopstate = function() {
-            console.log("Browser history changed");
-        };
-    </script>
 </body>
 </html>
